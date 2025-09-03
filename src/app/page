@@ -1,0 +1,60 @@
+
+
+interface FoodItem {
+  name: string;
+  description: string;
+  imageSrc: string;
+  alt: string;
+}
+
+// Import Header component (adjust the path if needed)
+// import Header from './Header';
+// If Header.tsx exists in src/components, use:
+import Header from '../components/Header';
+// Or update the path to where Header.tsx is actually located.
+
+export default function Home() {
+  const foodItems: FoodItem[] = [
+    {
+      name: 'Arepas',
+      description: 'Deliciosas rellenas de carne o pollo condimentadas para el sazón del verdadero sabor.',
+      imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6cxkr8mE8ZzK2SUKFe_96IWX_wcHbSH0mYw&s',
+      alt: 'Arepas'
+    },
+    {
+      name: 'Salsa la fiestica',
+      description: 'Un acompañamiento para estas comidas, una receta nativa y secreta para el disfrute.',
+      imageSrc: 'https://img-global.cpcdn.com/recipes/8cc52a638c2600d2/300x426cq80/salsa-de-mayonesa-y-ajo-foto-principal.webp',
+      alt: 'Salsa'
+    },
+    {
+      name: 'Tequeños',
+      description: 'Deliciosos para comer solo o en familia rellenos de queso. Son una adicción una vez los pruebas.',
+      imageSrc: 'https://mericakes.com/wp-content/uploads/2020/05/Tequenos-venezolanos-tequenos-receta-mericakes-venezuelan-food-confinamientoconmericakes-cheese-sticks-14.jpg',
+      alt: 'Tequeños'
+    },
+    {
+      name: 'Empanadas Venezolanas',
+      description: 'Empanadas únicas y caseras que reflejan el delicioso sabor de Venezuela con varios sabores como pollo, carne y jamón con queso.',
+      imageSrc: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgebo_arJKB11Llmo3rJXXjYT_cDoiWIHIhJVsqRlOk-PAkLmB-80B1lWEwGblekbhZ2c-23JNX3biQKLbQJ-7iaDX9U7e9n0qyRkQqxHnIB1W6MroaH_D05FE94x-GAa-lYvDAmdfb0ziU/s1600-rw/como-hacer-empanadas-venezolanas.jpg',
+      alt: 'Empanadas Venezolanas'
+    },
+  ];
+
+  return (
+    <>
+      <Header />
+      <div className="container">
+        <div className="food-list">
+          {foodItems.map((item, index) => (
+            <div key={index} className="food-card">
+              <img src={item.imageSrc} alt={item.alt} />
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
